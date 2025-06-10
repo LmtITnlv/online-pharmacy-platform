@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% block title %}个人资料 | 在线购药平台{% endblock %}
+
+{% block content %}
+<section class="profile-section">
+    <div class="container">
+        <div class="profile-container">
+            <h2 class="section-title text-center">个人资料</h2>
+            
+            {% if messages %}
+            <div class="alert alert-info">
+                {% for message in messages %}
+                <p>{{ message }}</p>
+                {% endfor %}
+            </div>
+            {% endif %}
+            
+            <div class="profile-info">
+                <div class="profile-header">
+                    <div class="profile-avatar">
+                        <i class="fas fa-user-circle fa-5x"></i>
+                    </div>
+                    <div class="profile-name">
+                        <h3>{{ user.username }}</h3>
+                        <p>会员注册时间: {{ user.date_joined|date:"Y年m月d日" }}</p>
+                    </div>
+                </div>
+                
+                <div class="profile-details">
+                    <div class="profile-section-title">
+                        <h4>个人信息</h4>
+                    </div>
+                    <div class="profile-items">
+                        <div class="profile-item">
+                            <div class="profile-item-label">姓名:</div>
+                            <div class="profile-item-value">{{ profile.full_name|default:"未设置" }}</div>
+                        </div>
+                        <div class="profile-item">
+                            <div class="profile-item-label">电话:</div>
+                            <div class="profile-item-value">{{ profile.phone|default:"未设置" }}</div>
+                        </div>
+                        <div class="profile-item">
+                            <div class="profile-item-label">地址:</div>
+                            <div class="profile-item-value">{{ profile.address|default:"未设置" }}</div>
+                        </div>
+                        <div class="profile-item">
+                            <div class="profile-item-label">邮箱:</div>
+                            <div class="profile-item-value">{{ user.email|default:"未设置" }}</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="profile-actions">
+                    <a href="#" class="btn btn-primary">编辑资料</a>
+                    <a href="{% url 'users:logout' %}" class="btn btn-outline-danger">退出登录</a>
+                </div>
+            </div>
+            
+            <div class="profile-orders">
+                <div class="profile-section-title">
+                    <h4>我的订单</h4>
+                </div>
+                {% if user.orders.all %}
+                <div class="order-list">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>订单号</th>
+                                <th>日期</th>
+                                <th>状态</th>
+                                <th>总价</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for order in user.orders.all %}
+                            <tr>
+                                <td>#{{ order.id }}</td>
+                                <td>{{ order.created|date:"Y-m-d H:i" }}</td>
+                                <td>{{ order.get_status_display }}</td>
+                                <td>¥{{ order.total_price }}</td>
+                                <td><a href="#" class="btn btn-sm btn-outline-primary">查看详情</a></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% else %}
+                <div class="no-orders">
+                    <p>您还没有订单记录</p>
+                    <a href="{% url 'products:product_list' %}" class="btn btn-primary">去购物</a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %} 

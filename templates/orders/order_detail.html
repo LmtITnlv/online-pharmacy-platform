@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+{% block title %}订单详情 | 在线购药平台{% endblock %}
+
+{% block content %}
+<section class="order-detail-section">
+    <div class="container">
+        <h2 class="section-title text-center">订单详情</h2>
+        
+        {% if messages %}
+        <div class="alert alert-info">
+            {% for message in messages %}
+            <p>{{ message }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+        
+        <div class="order-header card shadow-sm mb-4">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="order-info">
+                            <div class="order-label">订单编号</div>
+                            <div class="order-value">#{{ order.id }}</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="order-info">
+                            <div class="order-label">下单日期</div>
+                            <div class="order-value">{{ order.created|date:"Y-m-d H:i" }}</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="order-info">
+                            <div class="order-label">订单状态</div>
+                            <div class="order-value">
+                                <span class="badge bg-primary">{{ order.get_status_display }}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="order-info">
+                            <div class="order-label">订单总价</div>
+                            <div class="order-value text-danger fw-bold">¥{{ order.total_price }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <!-- 订单商品 -->
+            <div class="col-md-8">
+                <div class="order-items card shadow-sm">
+                    <div class="card-header">
+                        <h4>订单商品</h4>
+                    </div>
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>商品</th>
+                                    <th>单价</th>
+                                    <th>数量</th>
+                                    <th class="text-end">小计</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for item in order.items.all %}
+                                <tr>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            {% if item.product.image %}
+                                            <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="img-fluid rounded me-2" style="width: 50px;">
+                                            {% endif %}
+                                            <div>
+                                                <div>{{ item.product.name }}</div>
+                                                {% if item.product.prescription_required %}
+                                                <span class="badge bg-warning text-dark">处方药</span>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>¥{{ item.price }}</td>
+                                    <td>{{ item.quantity }}</td>
+                                    <td class="text-end">¥{{ item.get_cost }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="3" class="text-end fw-bold">总计:</td>
+                                    <td class="text-end fw-bold">¥{{ order.total_price }}</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 收货信息 -->
+            <div class="col-md-4">
+                <div class="shipping-info card shadow-sm mb-4">
+                    <div class="card-header">
+                        <h4>收货信息</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="info-item mb-2">
+                            <div class="info-label">收货人:</div>
+                            <div class="info-value">{{ order.full_name }}</div>
+                        </div>
+                        <div class="info-item mb-2">
+                            <div class="info-label">联系电话:</div>
+                            <div class="info-value">{{ order.phone }}</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">收货地址:</div>
+                            <div class="info-value">{{ order.address }}</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="order-actions card shadow-sm">
+                    <div class="card-body">
+                        <a href="{% url 'core:home' %}" class="btn btn-primary btn-lg w-100 mb-2">继续购物</a>
+                        {% if order.status == 'pending' %}
+                        <a href="#" class="btn btn-outline-primary w-100">去支付</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %} 

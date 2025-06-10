@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% block title %}购物车 | 在线购药平台{% endblock %}
+
+{% block content %}
+<section class="cart-section">
+    <div class="container">
+        <h2 class="section-title text-center">我的购物车</h2>
+        
+        {% if cart %}
+            <div class="cart-table-container">
+                <table class="table cart-table">
+                    <thead>
+                        <tr>
+                            <th>商品</th>
+                            <th>名称</th>
+                            <th>数量</th>
+                            <th>单价</th>
+                            <th>小计</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in cart %}
+                        <tr class="cart-item">
+                            <td class="cart-image">
+                                {% if item.product.image %}
+                                <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="img-fluid rounded">
+                                {% else %}
+                                <div class="no-image">无图片</div>
+                                {% endif %}
+                            </td>
+                            <td class="cart-name">
+                                <a href="{{ item.product.get_absolute_url }}">{{ item.product.name }}</a>
+                                {% if item.product.prescription_required %}
+                                <span class="badge badge-warning">处方药</span>
+                                {% endif %}
+                            </td>
+                            <td class="cart-quantity">
+                                <form action="{% url 'cart:cart_add' item.product.id %}" method="post">
+                                    {% csrf_token %}
+                                    {{ item.update_quantity_form.quantity }}
+                                    {{ item.update_quantity_form.override }}
+                                    <button type="submit" class="btn btn-sm btn-outline-primary">更新</button>
+                                </form>
+                            </td>
+                            <td class="cart-price">¥{{ item.price }}</td>
+                            <td class="cart-subtotal">¥{{ item.total_price }}</td>
+                            <td class="cart-remove">
+                                <form action="{% url 'cart:cart_remove' item.product.id %}" method="post">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-sm btn-outline-danger">
+                                        <i class="fas fa-trash"></i> 删除
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="cart-summary">
+                <div class="cart-total">
+                    <span class="total-label">总计:</span>
+                    <span class="total-price">¥{{ cart.get_total_price }}</span>
+                </div>
+                <div class="cart-actions">
+                    <a href="{% url 'products:product_list' %}" class="btn btn-outline-primary">
+                        <i class="fas fa-arrow-left"></i> 继续购物
+                    </a>
+                    <a href="{% url 'orders:order_create' %}" class="btn btn-primary">
+                        去结算 <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        {% else %}
+            <div class="empty-cart">
+                <div class="empty-cart-icon">
+                    <i class="fas fa-shopping-cart fa-5x"></i>
+                </div>
+                <h3>您的购物车是空的</h3>
+                <p>您还没有将任何商品添加到购物车中</p>
+                <div class="empty-cart-action">
+                    <a href="{% url 'products:product_list' %}" class="btn btn-primary">去购物</a>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %} 

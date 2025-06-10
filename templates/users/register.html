@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block title %}注册 | 在线购药平台{% endblock %}
+
+{% block content %}
+<section class="auth-section">
+    <div class="container">
+        <div class="auth-container">
+            <h2 class="section-title text-center">用户注册</h2>
+            <div class="auth-form">
+                <form method="post" novalidate>
+                    {% csrf_token %}
+                    {% if messages %}
+                    <div class="alert alert-info">
+                        {% for message in messages %}
+                        <p>{{ message }}</p>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    
+                    <div class="form-group">
+                        <label for="id_username">用户名</label>
+                        {{ form.username }}
+                        {% if form.username.errors %}
+                        <div class="error-message">
+                            {{ form.username.errors }}
+                        </div>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="id_password1">密码</label>
+                        {{ form.password1 }}
+                        {% if form.password1.errors %}
+                        <div class="error-message">
+                            {{ form.password1.errors }}
+                        </div>
+                        {% endif %}
+                        <small class="form-text text-muted">密码不能与用户名太相似，必须包含至少8个字符，不能是常用密码，不能全是数字。</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="id_password2">确认密码</label>
+                        {{ form.password2 }}
+                        {% if form.password2.errors %}
+                        <div class="error-message">
+                            {{ form.password2.errors }}
+                        </div>
+                        {% endif %}
+                        <small class="form-text text-muted">请再次输入相同的密码，以便验证。</small>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-block">注册</button>
+                </form>
+                <div class="auth-footer">
+                    <p>已有账号？<a href="{% url 'users:login' %}">立即登录</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %} 

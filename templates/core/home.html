@@ -13,34 +13,40 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <div class="d-block w-100 bg-primary text-white" style="height: 400px;">
+                <div class="d-block w-100 bg-primary text-white" style="height: 500px; background-image: url('https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center;">
                     <div class="container h-100 d-flex align-items-center">
-                        <div>
-                            <h2 class="display-4">健康药房</h2>
-                            <p class="lead">您身边的健康专家，提供优质药品和专业服务</p>
-                            <a href="{% url 'products:product_list' %}" class="btn btn-light btn-lg">立即选购</a>
+                        <div data-aos="fade-right" data-aos-delay="200">
+                            <h2 class="display-4 fw-bold">健康药房</h2>
+                            <p class="lead fs-4">您身边的健康专家，提供优质药品和专业服务</p>
+                            <a href="{% url 'products:product_list' %}" class="btn btn-light btn-lg rounded-pill">
+                                <i class="fas fa-pills me-2"></i>立即选购
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="carousel-item">
-                <div class="d-block w-100 bg-success text-white" style="height: 400px;">
+                <div class="d-block w-100 bg-success text-white" style="height: 500px; background-image: url('https://images.unsplash.com/photo-1584982751601-97dcc096659c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center;">
                     <div class="container h-100 d-flex align-items-center">
                         <div>
-                            <h2 class="display-4">专业用药指导</h2>
-                            <p class="lead">我们的药师团队为您提供专业的用药建议</p>
-                            <a href="{% url 'core:about' %}" class="btn btn-light btn-lg">了解更多</a>
+                            <h2 class="display-4 fw-bold">专业用药指导</h2>
+                            <p class="lead fs-4">我们的药师团队为您提供专业的用药建议</p>
+                            <a href="{% url 'core:about' %}" class="btn btn-light btn-lg rounded-pill">
+                                <i class="fas fa-user-md me-2"></i>了解更多
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="carousel-item">
-                <div class="d-block w-100 bg-info text-white" style="height: 400px;">
+                <div class="d-block w-100 bg-info text-white" style="height: 500px; background-image: url('https://images.unsplash.com/photo-1563213126-a4273aed2016?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center;">
                     <div class="container h-100 d-flex align-items-center">
                         <div>
-                            <h2 class="display-4">快速配送</h2>
-                            <p class="lead">下单后最快2小时送达，让您无需等待</p>
-                            <a href="{% url 'products:product_list' %}" class="btn btn-light btn-lg">立即选购</a>
+                            <h2 class="display-4 fw-bold">快速配送</h2>
+                            <p class="lead fs-4">下单后最快2小时送达，让您无需等待</p>
+                            <a href="{% url 'products:product_list' %}" class="btn btn-light btn-lg rounded-pill">
+                                <i class="fas fa-shipping-fast me-2"></i>立即下单
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -57,22 +63,27 @@
 
 <!-- 分类展示 -->
 <section class="categories-section py-5">
-    <div class="container">
-        <h2 class="text-center mb-4">药品分类</h2>
+    <div class="container py-3">
+        <div class="section-title text-center" data-aos="fade-up">
+            <h2>药品分类</h2>
+            <p>我们提供全面的药品分类，满足您各种健康需求</p>
+        </div>
         <div class="row g-4">
             {% if categories %}
                 {% for category in categories %}
-                <div class="col-md-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="{{ forloop.counter|add:'100' }}">
                     <a href="{% url 'products:product_list_by_category' category.slug %}" class="text-decoration-none">
                         <div class="category-card">
-                            <img src="https://via.placeholder.com/400x200?text=分类图片" alt="{{ category.name }}">
-                            <div class="category-overlay">{{ category.name }}</div>
+                            <img src="https://source.unsplash.com/random/400x200?medicine,pharmacy,{{ category.name }}" alt="{{ category.name }}">
+                            <div class="category-overlay">
+                                <span>{{ category.name }}</span>
+                            </div>
                         </div>
                     </a>
                 </div>
                 {% endfor %}
             {% else %}
-                <div class="col-12 text-center">
+                <div class="col-12 text-center" data-aos="fade-up">
                     <p>暂无分类数据</p>
                 </div>
             {% endif %}
@@ -82,12 +93,15 @@
 
 <!-- 特色产品 -->
 <section class="featured-products py-5 bg-light">
-    <div class="container">
-        <h2 class="text-center mb-4">热门药品</h2>
+    <div class="container py-3">
+        <div class="section-title text-center" data-aos="fade-up">
+            <h2>热门药品</h2>
+            <p>精选优质药品，为您的健康保驾护航</p>
+        </div>
         <div class="row g-4">
             {% if featured_products %}
                 {% for product in featured_products %}
-                <div class="col-md-3">
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="{{ forloop.counter|add:'100' }}">
                     <div class="card product-card h-100">
                         {% if product.prescription_required %}
                         <span class="prescription-badge">处方药</span>
@@ -95,59 +109,188 @@
                         {% if product.image %}
                         <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
                         {% else %}
-                        <img src="https://via.placeholder.com/300x300?text=药品图片" class="card-img-top" alt="{{ product.name }}">
+                        <img src="https://source.unsplash.com/random/300x300?medicine,{{ product.name }}" class="card-img-top" alt="{{ product.name }}">
                         {% endif %}
-                        <div class="card-body">
+                        <div class="card-body d-flex flex-column">
                             <h5 class="card-title">{{ product.name }}</h5>
-                            <p class="card-text text-danger fw-bold">¥{{ product.price }}</p>
-                            <a href="{% url 'products:product_detail' product.slug %}" class="btn btn-primary w-100">查看详情</a>
+                            <p class="card-text text-danger fw-bold mt-auto">¥{{ product.price }}</p>
+                            <a href="{% url 'products:product_detail' product.slug %}" class="btn btn-primary w-100 mt-2">
+                                <i class="fas fa-search me-2"></i>查看详情
+                            </a>
                         </div>
                     </div>
                 </div>
                 {% endfor %}
             {% else %}
-                <div class="col-12 text-center">
-                    <p>暂无产品数据</p>
+                <div class="col-12 text-center" data-aos="fade-up">
+                    <div class="alert alert-info">
+                        暂无产品数据
+                    </div>
                 </div>
             {% endif %}
         </div>
-        <div class="text-center mt-4">
-            <a href="{% url 'products:product_list' %}" class="btn btn-outline-primary">查看全部药品</a>
+        <div class="text-center mt-5" data-aos="fade-up">
+            <a href="{% url 'products:product_list' %}" class="btn btn-outline-primary btn-lg rounded-pill">
+                <i class="fas fa-list me-2"></i>查看全部药品
+            </a>
         </div>
     </div>
 </section>
 
 <!-- 服务优势 -->
 <section class="features-section py-5">
-    <div class="container">
-        <h2 class="text-center mb-5">我们的优势</h2>
-        <div class="row g-4 text-center">
-            <div class="col-md-3">
+    <div class="container py-3">
+        <div class="section-title text-center" data-aos="fade-up">
+            <h2>我们的优势</h2>
+            <p>为什么选择健康药房？我们致力于提供最优质的服务</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
                 <div class="p-3">
                     <i class="fas fa-shipping-fast fa-3x text-primary mb-3"></i>
                     <h4>快速配送</h4>
                     <p>最快2小时送达，解您燃眉之急</p>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
                 <div class="p-3">
                     <i class="fas fa-user-md fa-3x text-primary mb-3"></i>
                     <h4>专业指导</h4>
                     <p>专业药师在线解答用药疑问</p>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3" data-aos="fade-up" data-aos-delay="300">
                 <div class="p-3">
                     <i class="fas fa-shield-alt fa-3x text-primary mb-3"></i>
                     <h4>正品保障</h4>
                     <p>所有药品均为正规渠道采购</p>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3" data-aos="fade-up" data-aos-delay="400">
                 <div class="p-3">
                     <i class="fas fa-hand-holding-heart fa-3x text-primary mb-3"></i>
                     <h4>贴心服务</h4>
                     <p>7x24小时客服，随时为您服务</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 健康资讯 -->
+<section class="blog-section py-5 bg-light">
+    <div class="container py-3">
+        <div class="section-title text-center" data-aos="fade-up">
+            <h2>健康资讯</h2>
+            <p>了解最新的健康信息和用药知识</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="card h-100">
+                    <img src="https://source.unsplash.com/random/600x400?health" class="card-img-top" alt="健康知识">
+                    <div class="card-body">
+                        <h5 class="card-title">感冒用药指南</h5>
+                        <p class="card-text">如何正确选择和使用感冒药，避免不良反应...</p>
+                        <a href="#" class="btn btn-outline-primary">阅读更多</a>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <small><i class="far fa-calendar-alt me-2"></i>2023-06-15</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="card h-100">
+                    <img src="https://source.unsplash.com/random/600x400?medicine" class="card-img-top" alt="用药安全">
+                    <div class="card-body">
+                        <h5 class="card-title">抗生素使用常识</h5>
+                        <p class="card-text">抗生素不是万能药，滥用抗生素的危害及正确使用方法...</p>
+                        <a href="#" class="btn btn-outline-primary">阅读更多</a>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <small><i class="far fa-calendar-alt me-2"></i>2023-06-10</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="card h-100">
+                    <img src="https://source.unsplash.com/random/600x400?pharmacy" class="card-img-top" alt="健康生活">
+                    <div class="card-body">
+                        <h5 class="card-title">春季过敏预防</h5>
+                        <p class="card-text">春季花粉过敏高发，如何预防和缓解过敏症状...</p>
+                        <a href="#" class="btn btn-outline-primary">阅读更多</a>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <small><i class="far fa-calendar-alt me-2"></i>2023-06-05</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 客户评价 -->
+<section class="testimonials-section py-5">
+    <div class="container py-3">
+        <div class="section-title text-center" data-aos="fade-up">
+            <h2>客户评价</h2>
+            <p>听听我们的客户怎么说</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="card h-100 p-4">
+                    <div class="text-center mb-3">
+                        <img src="https://source.unsplash.com/random/100x100?person" class="rounded-circle" width="80" height="80" alt="客户头像">
+                    </div>
+                    <div class="card-body text-center">
+                        <div class="mb-3">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <p class="card-text">"服务非常好，药品质量有保障，而且配送速度很快，下单后仅2小时就送到了，非常满意！"</p>
+                        <h5 class="card-title mt-3">张先生</h5>
+                        <p class="text-muted">北京市</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="card h-100 p-4">
+                    <div class="text-center mb-3">
+                        <img src="https://source.unsplash.com/random/100x100?woman" class="rounded-circle" width="80" height="80" alt="客户头像">
+                    </div>
+                    <div class="card-body text-center">
+                        <div class="mb-3">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star-half-alt text-warning"></i>
+                        </div>
+                        <p class="card-text">"药师的专业指导非常有用，帮我解决了用药疑问。网站界面也很友好，找药很方便。"</p>
+                        <h5 class="card-title mt-3">李女士</h5>
+                        <p class="text-muted">上海市</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="card h-100 p-4">
+                    <div class="text-center mb-3">
+                        <img src="https://source.unsplash.com/random/100x100?man" class="rounded-circle" width="80" height="80" alt="客户头像">
+                    </div>
+                    <div class="card-body text-center">
+                        <div class="mb-3">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <p class="card-text">"价格比实体药店便宜，药品种类也很全。客服非常热情，会一直跟进订单状态，很贴心！"</p>
+                        <h5 class="card-title mt-3">王先生</h5>
+                        <p class="text-muted">广州市</p>
+                    </div>
                 </div>
             </div>
         </div>

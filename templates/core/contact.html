@@ -4,87 +4,326 @@
 
 {% block content %}
 <div class="container py-5">
-    <div class="row">
-        <div class="col-lg-8 mx-auto">
-            <h1 class="text-center mb-5">联系我们</h1>
-            
-            <div class="row mb-5">
-                <div class="col-md-4 text-center mb-4 mb-md-0">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-body p-4">
-                            <i class="fas fa-map-marker-alt fa-3x text-primary mb-3"></i>
-                            <h4>地址</h4>
-                            <p class="mb-0">北京市海淀区中关村大街1号</p>
-                        </div>
+    <!-- 页面标题 -->
+    <div class="row mb-5">
+        <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">
+            <h1 class="display-4 fw-bold text-primary mb-4">联系我们</h1>
+            <p class="lead fs-4 text-secondary">我们期待听到您的声音，为您提供更好的服务</p>
+            <div class="d-flex justify-content-center mt-4">
+                <div style="width: 80px; height: 4px; background: linear-gradient(to right, var(--primary-color), var(--secondary-color));"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 联系方式卡片 -->
+    <div class="row mb-5">
+        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="card contact-card h-100 shadow-sm border-0 text-center">
+                <div class="card-body p-5">
+                    <div class="contact-icon bg-primary-light text-primary mx-auto mb-4">
+                        <i class="fas fa-map-marker-alt"></i>
                     </div>
-                </div>
-                <div class="col-md-4 text-center mb-4 mb-md-0">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-body p-4">
-                            <i class="fas fa-phone fa-3x text-primary mb-3"></i>
-                            <h4>电话</h4>
-                            <p class="mb-0">400-123-4567</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 text-center">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-body p-4">
-                            <i class="fas fa-envelope fa-3x text-primary mb-3"></i>
-                            <h4>邮箱</h4>
-                            <p class="mb-0">contact@healthpharmacy.com</p>
-                        </div>
-                    </div>
+                    <h4 class="card-title">地址</h4>
+                    <p class="card-text mb-0">北京市海淀区中关村大街1号</p>
                 </div>
             </div>
-            
-            <div class="card shadow-sm">
+        </div>
+        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="card contact-card h-100 shadow-sm border-0 text-center">
                 <div class="card-body p-5">
-                    <h2 class="h4 mb-4">给我们留言</h2>
-                    <form>
-                        <div class="mb-3">
-                            <label for="name" class="form-label">您的姓名</label>
-                            <input type="text" class="form-control" id="name" placeholder="请输入您的姓名">
+                    <div class="contact-icon bg-primary-light text-primary mx-auto mb-4">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h4 class="card-title">电话</h4>
+                    <p class="card-text mb-0">400-123-4567</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="card contact-card h-100 shadow-sm border-0 text-center">
+                <div class="card-body p-5">
+                    <div class="contact-icon bg-primary-light text-primary mx-auto mb-4">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h4 class="card-title">邮箱</h4>
+                    <p class="card-text mb-0">contact@healthpharmacy.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 留言表单和地图 -->
+    <div class="row">
+        <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
+            <div class="card shadow-sm border-0">
+                <div class="card-body p-5">
+                    <h2 class="card-title h2 mb-4">给我们留言</h2>
+                    <p class="text-muted mb-4">如果您有任何问题、建议或投诉，请随时告诉我们，我们将尽快回复您。</p>
+                    <form id="contactForm">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="name" placeholder="请输入您的姓名">
+                                    <label for="name">您的姓名</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating mb-3">
+                                    <input type="email" class="form-control" id="email" placeholder="请输入您的邮箱">
+                                    <label for="email">电子邮箱</label>
+                                </div>
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">电子邮箱</label>
-                            <input type="email" class="form-control" id="email" placeholder="请输入您的邮箱">
-                        </div>
-                        <div class="mb-3">
-                            <label for="subject" class="form-label">主题</label>
+                        <div class="form-floating mb-3">
                             <input type="text" class="form-control" id="subject" placeholder="请输入留言主题">
+                            <label for="subject">主题</label>
                         </div>
-                        <div class="mb-3">
-                            <label for="message" class="form-label">留言内容</label>
-                            <textarea class="form-control" id="message" rows="5" placeholder="请输入您的留言内容"></textarea>
+                        <div class="form-floating mb-4">
+                            <textarea class="form-control" id="message" style="height: 150px" placeholder="请输入您的留言内容"></textarea>
+                            <label for="message">留言内容</label>
                         </div>
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-primary btn-lg">提交留言</button>
-                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg w-100">
+                            <i class="far fa-paper-plane me-2"></i>提交留言
+                        </button>
                     </form>
                 </div>
             </div>
-            
-            <div class="mt-5">
-                <h3 class="h5 mb-4">营业时间</h3>
-                <table class="table">
-                    <tbody>
-                        <tr>
-                            <td>周一至周五</td>
-                            <td>9:00 - 21:00</td>
-                        </tr>
-                        <tr>
-                            <td>周六至周日</td>
-                            <td>10:00 - 20:00</td>
-                        </tr>
-                        <tr>
-                            <td>法定节假日</td>
-                            <td>10:00 - 19:00</td>
-                        </tr>
-                    </tbody>
-                </table>
+        </div>
+        <div class="col-lg-6" data-aos="fade-left">
+            <div class="card shadow-sm border-0 h-100">
+                <div class="card-body p-5">
+                    <h2 class="card-title h2 mb-4">我们的位置</h2>
+                    <p class="text-muted mb-4">您可以在地图上找到我们的位置，欢迎您来访。</p>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3021.6453895846384!2d116.3035940751661!3d39.98344638743203!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35f05158b814cde1%3A0x7f4786a7de467b8!2z5Lit5YWD5p2R5aSn5bGV!5e0!3m2!1szh-CN!2scn!4v1686824161287!5m2!1szh-CN!2scn" width="100%" height="300" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 营业时间 -->
+    <div class="row mt-5">
+        <div class="col-lg-8 mx-auto" data-aos="fade-up">
+            <div class="card shadow-sm border-0">
+                <div class="card-body p-5">
+                    <h2 class="card-title h2 text-center mb-4">营业时间</h2>
+                    <p class="text-center text-muted mb-4">我们的客服团队在以下时间为您提供服务</p>
+                    <div class="table-responsive">
+                        <table class="table table-hover business-hours">
+                            <tbody>
+                                <tr>
+                                    <td><i class="far fa-clock me-2 text-primary"></i>周一至周五</td>
+                                    <td class="text-end fw-bold">9:00 - 21:00</td>
+                                </tr>
+                                <tr>
+                                    <td><i class="far fa-clock me-2 text-primary"></i>周六至周日</td>
+                                    <td class="text-end fw-bold">10:00 - 20:00</td>
+                                </tr>
+                                <tr>
+                                    <td><i class="far fa-clock me-2 text-primary"></i>法定节假日</td>
+                                    <td class="text-end fw-bold">10:00 - 19:00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 常见问题 -->
+    <div class="row mt-5">
+        <div class="col-12 text-center mb-5" data-aos="fade-up">
+            <h2 class="h2 mb-4">常见问题</h2>
+            <p class="lead">这里是一些常见问题的解答，希望能帮助到您</p>
+        </div>
+        <div class="col-lg-10 mx-auto" data-aos="fade-up">
+            <div class="accordion shadow-sm" id="faqAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faq1">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse1">
+                            如何查询订单状态？
+                        </button>
+                    </h2>
+                    <div id="faqCollapse1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            您可以登录您的账户，在"我的订单"中查看订单状态。我们会实时更新订单的处理、发货和配送情况，您也可以通过订单详情页面查看物流信息。
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faq2">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse2">
+                            如何退换药品？
+                        </button>
+                    </h2>
+                    <div id="faqCollapse2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            根据药品管理法规定，药品一般不支持无理由退换。但如果您收到的药品有质量问题或与订购的不符，请在收到药品24小时内联系我们的客服，我们会为您安排退换。
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faq3">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse3">
+                            处方药如何购买？
+                        </button>
+                    </h2>
+                    <div id="faqCollapse3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            购买处方药需要上传有效处方。您可以在下单时上传医院开具的处方照片，经过我们的药师审核通过后，即可购买处方药。处方有效期为3个月。
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faq4">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse4">
+                            配送时间是多久？
+                        </button>
+                    </h2>
+                    <div id="faqCollapse4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            我们承诺在市区范围内2小时内送达，其他区域24小时内送达。特殊情况如恶劣天气可能会影响配送时间，我们会提前通知您。如有特殊配送需求，可联系客服。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 关注我们 -->
+    <div class="row mt-5">
+        <div class="col-12 text-center mb-4" data-aos="fade-up">
+            <h2 class="h2 mb-4">关注我们</h2>
+            <p class="lead">通过以下社交媒体关注我们，获取最新动态和健康资讯</p>
+            <div class="social-links-lg mt-4">
+                <a href="#" class="mx-2" data-bs-toggle="tooltip" title="微信公众号">
+                    <i class="fab fa-weixin"></i>
+                </a>
+                <a href="#" class="mx-2" data-bs-toggle="tooltip" title="微博">
+                    <i class="fab fa-weibo"></i>
+                </a>
+                <a href="#" class="mx-2" data-bs-toggle="tooltip" title="抖音">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <a href="#" class="mx-2" data-bs-toggle="tooltip" title="小红书">
+                    <i class="fas fa-book-open"></i>
+                </a>
             </div>
         </div>
     </div>
 </div>
+
+<style>
+.contact-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin: 0 auto;
+    transition: all 0.3s;
+}
+
+.contact-card {
+    transition: all 0.3s;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.contact-card:hover {
+    transform: translateY(-10px);
+}
+
+.contact-card:hover .contact-icon {
+    background-color: var(--primary-color) !important;
+    color: white !important;
+}
+
+.bg-primary-light {
+    background-color: rgba(76, 175, 80, 0.1);
+}
+
+.form-floating label {
+    font-size: 0.9rem;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(76, 175, 80, 0.25);
+}
+
+.map-container {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.business-hours tr {
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    transition: all 0.3s;
+}
+
+.business-hours tr:hover {
+    background-color: rgba(76, 175, 80, 0.05);
+}
+
+.social-links-lg a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(76, 175, 80, 0.1);
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin: 0 10px;
+    transition: all 0.3s ease;
+}
+
+.social-links-lg a:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(76, 175, 80, 0.3);
+}
+
+.accordion-item {
+    border: none;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.accordion-button {
+    padding: 1.25rem 1.5rem;
+    font-weight: 600;
+    background-color: white;
+    box-shadow: none;
+}
+
+.accordion-button:not(.collapsed) {
+    color: var(--primary-color);
+    background-color: rgba(76, 175, 80, 0.05);
+    box-shadow: none;
+}
+
+.accordion-button:focus {
+    border-color: rgba(76, 175, 80, 0.5);
+    box-shadow: 0 0 0 0.25rem rgba(76, 175, 80, 0.25);
+}
+
+.accordion-button:not(.collapsed)::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%234CAF50'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+.accordion-body {
+    padding: 1.5rem;
+    background-color: white;
+}
+</style>
+
 {% endblock %}

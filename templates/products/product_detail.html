@@ -41,16 +41,19 @@
             </div>
             
             <div class="mb-4">
-                <div class="d-flex align-items-center">
-                    <div class="input-group me-3" style="width: 150px;">
-                        <button class="btn btn-outline-secondary" type="button">-</button>
-                        <input type="text" class="form-control text-center" value="1">
-                        <button class="btn btn-outline-secondary" type="button">+</button>
+                <form action="{% url 'cart:cart_add' product.id %}" method="post">
+                    {% csrf_token %}
+                    <div class="d-flex align-items-center">
+                        <div class="me-3">
+                            {{ cart_product_form.quantity.label_tag }}
+                            {{ cart_product_form.quantity }}
+                            {{ cart_product_form.override }}
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            <i class="fas fa-cart-plus me-2"></i> 加入购物车
+                        </button>
                     </div>
-                    <button class="btn btn-primary btn-lg">
-                        <i class="fas fa-cart-plus me-2"></i> 加入购物车
-                    </button>
-                </div>
+                </form>
             </div>
             
             <div class="card shadow-sm mb-4">

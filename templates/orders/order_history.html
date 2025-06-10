@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block title %}订单历史 | 在线购药平台{% endblock %}
+
+{% block content %}
+<section class="order-history-section">
+    <div class="container">
+        <h2 class="section-title text-center">我的订单</h2>
+        
+        {% if orders %}
+        <div class="order-list">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>订单号</th>
+                            <th>日期</th>
+                            <th>收货人</th>
+                            <th>状态</th>
+                            <th>总价</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for order in orders %}
+                        <tr>
+                            <td>#{{ order.id }}</td>
+                            <td>{{ order.created|date:"Y-m-d H:i" }}</td>
+                            <td>{{ order.full_name }}</td>
+                            <td>
+                                {% if order.status == 'pending' %}
+                                <span class="badge bg-warning text-dark">{{ order.get_status_display }}</span>
+                                {% elif order.status == 'paid' %}
+                                <span class="badge bg-info">{{ order.get_status_display }}</span>
+                                {% elif order.status == 'shipped' %}
+                                <span class="badge bg-primary">{{ order.get_status_display }}</span>
+                                {% elif order.status == 'delivered' %}
+                                <span class="badge bg-success">{{ order.get_status_display }}</span>
+                                {% elif order.status == 'cancelled' %}
+                                <span class="badge bg-danger">{{ order.get_status_display }}</span>
+                                {% endif %}
+                            </td>
+                            <td>¥{{ order.total_price }}</td>
+                            <td>
+                                <a href="{% url 'orders:order_detail' order.id %}" class="btn btn-sm btn-outline-primary">查看详情</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        {% else %}
+        <div class="no-orders text-center py-5">
+            <div class="no-orders-icon mb-3">
+                <i class="fas fa-clipboard-list fa-5x text-muted"></i>
+            </div>
+            <h3>您还没有订单记录</h3>
+            <p class="mb-4">去购物吧，我们有各种优质药品等您选择</p>
+            <a href="{% url 'products:product_list' %}" class="btn btn-primary btn-lg">去购物</a>
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %} 

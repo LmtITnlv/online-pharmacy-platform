@@ -58,8 +58,17 @@
                         <div class="card-body">
                             <h5 class="card-title">{{ product.name }}</h5>
                             <p class="card-text text-danger fw-bold">¥{{ product.price }}</p>
-                            <div class="d-grid">
+                            <div class="d-grid gap-2">
                                 <a href="{% url 'products:product_detail' product.slug %}" class="btn btn-primary">查看详情</a>
+                                <form action="{% url 'cart:cart_add' product.id %}" method="post">
+                                    {% csrf_token %}
+                                    {{ product.cart_form.quantity.as_hidden }}
+                                    {{ product.cart_form.override.as_hidden }}
+                                    <input type="hidden" name="quantity" value="1">
+                                    <button type="submit" class="btn btn-outline-primary w-100">
+                                        <i class="fas fa-cart-plus me-2"></i>加入购物车
+                                    </button>
+                                </form>
                             </div>
                         </div>
                     </div>
