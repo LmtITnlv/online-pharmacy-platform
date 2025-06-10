@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block title %}联系我们 - 健康药房{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <h1 class="text-center mb-5">联系我们</h1>
+            
+            <div class="row mb-5">
+                <div class="col-md-4 text-center mb-4 mb-md-0">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body p-4">
+                            <i class="fas fa-map-marker-alt fa-3x text-primary mb-3"></i>
+                            <h4>地址</h4>
+                            <p class="mb-0">北京市海淀区中关村大街1号</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center mb-4 mb-md-0">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body p-4">
+                            <i class="fas fa-phone fa-3x text-primary mb-3"></i>
+                            <h4>电话</h4>
+                            <p class="mb-0">400-123-4567</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body p-4">
+                            <i class="fas fa-envelope fa-3x text-primary mb-3"></i>
+                            <h4>邮箱</h4>
+                            <p class="mb-0">contact@healthpharmacy.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card shadow-sm">
+                <div class="card-body p-5">
+                    <h2 class="h4 mb-4">给我们留言</h2>
+                    <form>
+                        <div class="mb-3">
+                            <label for="name" class="form-label">您的姓名</label>
+                            <input type="text" class="form-control" id="name" placeholder="请输入您的姓名">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">电子邮箱</label>
+                            <input type="email" class="form-control" id="email" placeholder="请输入您的邮箱">
+                        </div>
+                        <div class="mb-3">
+                            <label for="subject" class="form-label">主题</label>
+                            <input type="text" class="form-control" id="subject" placeholder="请输入留言主题">
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">留言内容</label>
+                            <textarea class="form-control" id="message" rows="5" placeholder="请输入您的留言内容"></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary btn-lg">提交留言</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="mt-5">
+                <h3 class="h5 mb-4">营业时间</h3>
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td>周一至周五</td>
+                            <td>9:00 - 21:00</td>
+                        </tr>
+                        <tr>
+                            <td>周六至周日</td>
+                            <td>10:00 - 20:00</td>
+                        </tr>
+                        <tr>
+                            <td>法定节假日</td>
+                            <td>10:00 - 19:00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

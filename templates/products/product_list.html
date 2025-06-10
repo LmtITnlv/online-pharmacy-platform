@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {% if category %}{{ category.name }}{% else %}所有药品{% endif %} - 健康药房
+{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <!-- 侧边栏分类 -->
+        <div class="col-md-3 mb-4">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">药品分类</h5>
+                </div>
+                <div class="list-group list-group-flush">
+                    <a href="{% url 'products:product_list' %}" class="list-group-item list-group-item-action {% if not category %}active{% endif %}">
+                        所有药品
+                    </a>
+                    {% for c in categories %}
+                    <a href="{% url 'products:product_list_by_category' c.slug %}" class="list-group-item list-group-item-action {% if category.slug == c.slug %}active{% endif %}">
+                        {{ c.name }}
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        
+        <!-- 产品列表 -->
+        <div class="col-md-9">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="mb-0">{% if category %}{{ category.name }}{% else %}所有药品{% endif %}</h2>
+                <div class="dropdown">
+                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="sortDropdown" data-bs-toggle="dropdown">
+                        排序方式
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#">价格从低到高</a></li>
+                        <li><a class="dropdown-item" href="#">价格从高到低</a></li>
+                        <li><a class="dropdown-item" href="#">最新上架</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            {% if products %}
+            <div class="row g-4">
+                {% for product in products %}
+                <div class="col-md-4">
+                    <div class="card product-card h-100">
+                        {% if product.prescription_required %}
+                        <span class="prescription-badge">处方药</span>
+                        {% endif %}
+                        {% if product.image %}
+                        <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+                        {% else %}
+                        <img src="https://via.placeholder.com/300x300?text=药品图片" class="card-img-top" alt="{{ product.name }}">
+                        {% endif %}
+                        <div class="card-body">
+                            <h5 class="card-title">{{ product.name }}</h5>
+                            <p class="card-text text-danger fw-bold">¥{{ product.price }}</p>
+                            <div class="d-grid">
+                                <a href="{% url 'products:product_detail' product.slug %}" class="btn btn-primary">查看详情</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <div class="alert alert-info">
+                暂无药品数据
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

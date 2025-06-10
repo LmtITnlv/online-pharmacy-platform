@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block title %}关于我们 - 健康药房{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <h1 class="text-center mb-5">关于健康药房</h1>
+            
+            <div class="card shadow-sm mb-5">
+                <div class="card-body p-5">
+                    <h2 class="h4 mb-4">我们的使命</h2>
+                    <p>健康药房致力于为广大用户提供优质、安全、便捷的药品购买体验。我们希望通过专业的药学服务和便捷的线上平台，让每一位用户都能轻松获取所需的药品和健康指导。</p>
+                    
+                    <hr class="my-5">
+                    
+                    <h2 class="h4 mb-4">我们的团队</h2>
+                    <p>我们的团队由经验丰富的药师、物流专家和客服人员组成，确保您从选药到收货的每一个环节都得到专业的服务。</p>
+                    
+                    <div class="row mt-4">
+                        <div class="col-md-4 text-center mb-4">
+                            <img src="https://via.placeholder.com/150" class="rounded-circle mb-3" alt="团队成员">
+                            <h5>李医生</h5>
+                            <p class="text-muted">首席药师</p>
+                        </div>
+                        <div class="col-md-4 text-center mb-4">
+                            <img src="https://via.placeholder.com/150" class="rounded-circle mb-3" alt="团队成员">
+                            <h5>张经理</h5>
+                            <p class="text-muted">运营总监</p>
+                        </div>
+                        <div class="col-md-4 text-center mb-4">
+                            <img src="https://via.placeholder.com/150" class="rounded-circle mb-3" alt="团队成员">
+                            <h5>王工</h5>
+                            <p class="text-muted">物流主管</p>
+                        </div>
+                    </div>
+                    
+                    <hr class="my-5">
+                    
+                    <h2 class="h4 mb-4">我们的承诺</h2>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item border-0 ps-0">
+                            <i class="fas fa-check-circle text-success me-2"></i> 所有药品均来自正规渠道，保证质量
+                        </li>
+                        <li class="list-group-item border-0 ps-0">
+                            <i class="fas fa-check-circle text-success me-2"></i> 严格的药品存储和配送标准，确保药效
+                        </li>
+                        <li class="list-group-item border-0 ps-0">
+                            <i class="fas fa-check-circle text-success me-2"></i> 专业的用药指导，避免用药错误
+                        </li>
+                        <li class="list-group-item border-0 ps-0">
+                            <i class="fas fa-check-circle text-success me-2"></i> 快速响应的客户服务，解决您的问题
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <a href="{% url 'core:contact' %}" class="btn btn-primary btn-lg">联系我们</a>
+                <a href="{% url 'products:product_list' %}" class="btn btn-outline-primary btn-lg ms-3">浏览药品</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
