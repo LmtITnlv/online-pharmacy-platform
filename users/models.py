@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
+    full_name = models.CharField('姓名', max_length=100, blank=True)
     phone = models.CharField('手机号码', max_length=15, blank=True)
     address = models.TextField('收货地址', blank=True)
     

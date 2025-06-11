@@ -36,11 +36,11 @@
                                 {% endif %}
                             </td>
                             <td class="cart-quantity">
-                                <form action="{% url 'cart:cart_add' item.product.id %}" method="post">
+                                <form action="{% url 'cart:cart_add' item.product.id %}" method="post" class="quantity-form">
                                     {% csrf_token %}
                                     {{ item.update_quantity_form.quantity }}
                                     {{ item.update_quantity_form.override }}
-                                    <button type="submit" class="btn btn-sm btn-outline-primary">更新</button>
+                                    <button type="submit" class="btn btn-sm btn-outline-primary update-btn">更新</button>
                                 </form>
                             </td>
                             <td class="cart-price">¥{{ item.price }}</td>
@@ -90,4 +90,27 @@
         {% endif %}
     </div>
 </section>
+
+{% if cart %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // 获取所有数量输入框
+    const quantityInputs = document.querySelectorAll('.cart-quantity select');
+    
+    // 为每个输入框添加change事件监听器
+    quantityInputs.forEach(input => {
+        input.addEventListener('change', function() {
+            // 自动提交表单
+            this.closest('form').submit();
+        });
+    });
+    
+    // 隐藏更新按钮，因为已经自动提交
+    const updateButtons = document.querySelectorAll('.update-btn');
+    updateButtons.forEach(button => {
+        button.style.display = 'none';
+    });
+});
+</script>
+{% endif %}
 {% endblock %} 

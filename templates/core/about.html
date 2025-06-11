@@ -1,345 +1,160 @@
 {% extends 'base.html' %}
 
-{% block title %}关于我们 - 健康药房{% endblock %}
+{% block title %}关于我们 - MASTER药房{% endblock %}
 
 {% block content %}
-<div class="container py-5">
-    <!-- 页面标题 -->
-    <div class="row mb-5">
-        <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">
-            <h1 class="display-4 fw-bold text-primary mb-4">关于健康药房</h1>
-            <p class="lead fs-4 text-secondary">我们致力于成为您健康生活的可靠伙伴</p>
-            <div class="d-flex justify-content-center mt-4">
-                <div style="width: 80px; height: 4px; background: linear-gradient(to right, var(--primary-color), var(--secondary-color));"></div>
+<section class="about-header py-5 bg-light">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <h1 class="display-4 fw-bold text-primary mb-4">关于MASTER药房</h1>
+                <p class="lead">我们是您值得信赖的线上药房，提供全面的药品服务和健康咨询</p>
+            </div>
+            <div class="col-lg-6">
+                <img src="https://source.unsplash.com/random/800x600?pharmacy" alt="MASTER药房" class="img-fluid rounded shadow-sm">
             </div>
         </div>
     </div>
-    
-    <!-- 公司介绍 -->
-    <div class="row mb-5 align-items-center">
-        <div class="col-md-6 mb-4 mb-md-0" data-aos="fade-right">
-            <img src="https://source.unsplash.com/random/800x600?pharmacy" alt="健康药房" class="img-fluid rounded shadow-sm">
-        </div>
-        <div class="col-md-6" data-aos="fade-left">
-            <h2 class="h2 mb-4">公司简介</h2>
-            <p class="mb-4">健康药房成立于2010年，是一家专注于线上药品销售和健康咨询的综合性企业。十余年来，我们始终坚持"以客户健康为中心"的服务理念，通过提供优质药品和专业服务，赢得了广大消费者的信任和支持。</p>
-            <p>我们拥有丰富的药品资源和专业的药师团队，严格把控药品质量，确保每一位顾客都能买到安全有效的药品。同时，我们还提供专业的用药指导，帮助顾客正确合理地使用药品，提高治疗效果。</p>
-        </div>
-    </div>
-    
-    <!-- 我们的使命 -->
-    <div class="row py-5 bg-light rounded-3 mb-5">
-        <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">
-            <div class="p-4">
-                <h2 class="h2 mb-4">我们的使命</h2>
-                <p class="lead fs-5 mb-4">健康药房致力于为广大用户提供优质、安全、便捷的药品购买体验。我们希望通过专业的药学服务和便捷的线上平台，让每一位用户都能轻松获取所需的药品和健康指导。</p>
-                <div class="row mt-5 g-4">
-                    <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
-                        <div class="bg-white p-4 rounded shadow-sm h-100">
-                            <i class="fas fa-pills fa-2x text-primary mb-3"></i>
-                            <h5>优质药品</h5>
-                            <p class="text-muted mb-0">提供高品质、正规渠道的药品，确保用户用药安全</p>
+</section>
+
+<section class="about-history py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="text-center mb-4">我们的历程</h2>
+                <p class="mb-4">MASTER药房成立于2010年，是一家专注于线上药品销售和健康咨询的综合性企业。十余年来，我们始终坚持"以客户健康为中心"的服务理念，通过提供优质药品和专业服务，赢得了广大消费者的信任和支持。</p>
+                <div class="timeline py-4">
+                    <div class="timeline-item" data-aos="fade-up">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4>2010年</h4>
+                            <p>MASTER药房正式成立，开始提供线上药品销售服务</p>
                         </div>
                     </div>
-                    <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
-                        <div class="bg-white p-4 rounded shadow-sm h-100">
-                            <i class="fas fa-user-md fa-2x text-primary mb-3"></i>
-                            <h5>专业指导</h5>
-                            <p class="text-muted mb-0">由专业药师提供用药建议，确保用药合理有效</p>
+                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4>2015年</h4>
+                            <p>业务范围扩大，新增健康咨询和用药指导服务</p>
                         </div>
                     </div>
-                    <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
-                        <div class="bg-white p-4 rounded shadow-sm h-100">
-                            <i class="fas fa-shipping-fast fa-2x text-primary mb-3"></i>
-                            <h5>便捷服务</h5>
-                            <p class="text-muted mb-0">提供快速便捷的配送服务，满足用户急需</p>
+                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4>2018年</h4>
+                            <p>获得"最受消费者信赖的线上药房"称号</p>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- 我们的团队 -->
-    <div class="row mb-5">
-        <div class="col-12 text-center mb-5" data-aos="fade-up">
-            <h2 class="h2 mb-4">我们的团队</h2>
-            <p class="lead">我们的团队由经验丰富的药师、物流专家和客服人员组成，确保您从选药到收货的每一个环节都得到专业的服务。</p>
-        </div>
-        
-        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="card team-card border-0 shadow-sm h-100">
-                <div class="position-relative">
-                    <img src="https://source.unsplash.com/random/400x300?pharmacist" class="card-img-top" alt="团队成员">
-                    <div class="team-overlay d-flex align-items-center justify-content-center">
-                        <div class="team-social">
-                            <a href="#" class="mx-2"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#" class="mx-2"><i class="fab fa-weixin"></i></a>
-                            <a href="#" class="mx-2"><i class="far fa-envelope"></i></a>
+                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4>2020年</h4>
+                            <p>推出新版线上平台，提供更便捷的购药体验</p>
                         </div>
                     </div>
-                </div>
-                <div class="card-body text-center">
-                    <h5 class="card-title">李医生</h5>
-                    <p class="card-text text-primary mb-2">首席药师</p>
-                    <p class="card-text text-muted">拥有15年药学经验，曾在三甲医院药剂科担任主任职务，专注于药品合理用药指导。</p>
-                </div>
-            </div>
-        </div>
-        
-        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="card team-card border-0 shadow-sm h-100">
-                <div class="position-relative">
-                    <img src="https://source.unsplash.com/random/400x300?manager" class="card-img-top" alt="团队成员">
-                    <div class="team-overlay d-flex align-items-center justify-content-center">
-                        <div class="team-social">
-                            <a href="#" class="mx-2"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#" class="mx-2"><i class="fab fa-weixin"></i></a>
-                            <a href="#" class="mx-2"><i class="far fa-envelope"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body text-center">
-                    <h5 class="card-title">张经理</h5>
-                    <p class="card-text text-primary mb-2">运营总监</p>
-                    <p class="card-text text-muted">MBA背景，有丰富的医药电商运营经验，致力于打造高效便捷的药品购买体验。</p>
-                </div>
-            </div>
-        </div>
-        
-        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="card team-card border-0 shadow-sm h-100">
-                <div class="position-relative">
-                    <img src="https://source.unsplash.com/random/400x300?logistics" class="card-img-top" alt="团队成员">
-                    <div class="team-overlay d-flex align-items-center justify-content-center">
-                        <div class="team-social">
-                            <a href="#" class="mx-2"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#" class="mx-2"><i class="fab fa-weixin"></i></a>
-                            <a href="#" class="mx-2"><i class="far fa-envelope"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body text-center">
-                    <h5 class="card-title">王工</h5>
-                    <p class="card-text text-primary mb-2">物流主管</p>
-                    <p class="card-text text-muted">拥有10年医药物流管理经验，建立了高效的药品配送系统，确保药品及时送达。</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- 我们的承诺 -->
-    <div class="row py-5 bg-light rounded-3 mb-5">
-        <div class="col-lg-10 mx-auto" data-aos="fade-up">
-            <h2 class="h2 text-center mb-5">我们的承诺</h2>
-            <div class="row g-4">
-                <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
-                    <div class="d-flex commitment-item p-3 rounded bg-white shadow-sm mb-4">
-                        <div class="flex-shrink-0 me-3">
-                            <div class="commitment-icon bg-success-light text-success">
-                                <i class="fas fa-check"></i>
-                            </div>
-                        </div>
-                        <div>
-                            <h5>正品保证</h5>
-                            <p class="text-muted mb-0">所有药品均来自正规渠道，杜绝假冒伪劣，保证药品质量</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6" data-aos="fade-left" data-aos-delay="100">
-                    <div class="d-flex commitment-item p-3 rounded bg-white shadow-sm mb-4">
-                        <div class="flex-shrink-0 me-3">
-                            <div class="commitment-icon bg-success-light text-success">
-                                <i class="fas fa-check"></i>
-                            </div>
-                        </div>
-                        <div>
-                            <h5>专业指导</h5>
-                            <p class="text-muted mb-0">提供专业的用药指导，确保用药安全有效</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6" data-aos="fade-right" data-aos-delay="200">
-                    <div class="d-flex commitment-item p-3 rounded bg-white shadow-sm mb-4">
-                        <div class="flex-shrink-0 me-3">
-                            <div class="commitment-icon bg-success-light text-success">
-                                <i class="fas fa-check"></i>
-                            </div>
-                        </div>
-                        <div>
-                            <h5>快速配送</h5>
-                            <p class="text-muted mb-0">高效的物流系统，确保药品及时送达，部分区域支持2小时送达</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
-                    <div class="d-flex commitment-item p-3 rounded bg-white shadow-sm mb-4">
-                        <div class="flex-shrink-0 me-3">
-                            <div class="commitment-icon bg-success-light text-success">
-                                <i class="fas fa-check"></i>
-                            </div>
-                        </div>
-                        <div>
-                            <h5>全天候客服</h5>
-                            <p class="text-muted mb-0">7x24小时在线客服，随时解答您的疑问</p>
+                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="400">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4>2023年</h4>
+                            <p>推出送药上门服务，实现最快2小时送达</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    
-    <!-- 资质证明 -->
-    <div class="row mb-5">
-        <div class="col-12 text-center mb-5" data-aos="fade-up">
-            <h2 class="h2 mb-4">我们的资质</h2>
-            <p class="lead">健康药房拥有合法的经营资质，确保您购买的每一件药品都安全可靠</p>
-        </div>
-        <div class="col-md-6 mb-4 mb-md-0" data-aos="fade-right">
-            <div class="card shadow-sm h-100">
-                <div class="card-body p-4">
-                    <h5 class="card-title mb-4">经营资质</h5>
-                    <ul class="list-unstyled">
-                        <li class="mb-3"><i class="fas fa-certificate text-success me-2"></i> 药品经营许可证</li>
-                        <li class="mb-3"><i class="fas fa-certificate text-success me-2"></i> 互联网药品信息服务资格证书</li>
-                        <li class="mb-3"><i class="fas fa-certificate text-success me-2"></i> 食品经营许可证</li>
-                        <li class="mb-3"><i class="fas fa-certificate text-success me-2"></i> 营业执照</li>
-                        <li class="mb-3"><i class="fas fa-certificate text-success me-2"></i> GSP认证</li>
-                    </ul>
-                </div>
+</section>
+
+<section class="about-mission py-5 bg-light">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 order-lg-2 mb-4 mb-lg-0" data-aos="fade-left">
+                <h2 class="mb-4">我们的使命</h2>
+                <p class="lead fs-5 mb-4">MASTER药房致力于为广大用户提供优质、安全、便捷的药品购买体验。我们希望通过专业的药学服务和便捷的线上平台，让每一位用户都能轻松获取所需的药品和健康指导。</p>
+                <ul class="list-unstyled">
+                    <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i>提供正品保障的药品</li>
+                    <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i>专业的用药指导</li>
+                    <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i>便捷的购药体验</li>
+                    <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i>快速的配送服务</li>
+                </ul>
             </div>
-        </div>
-        <div class="col-md-6" data-aos="fade-left">
-            <div class="card shadow-sm h-100">
-                <div class="card-body p-4">
-                    <h5 class="card-title mb-4">质量保证</h5>
-                    <ul class="list-unstyled">
-                        <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> 严格的供应商资质审核体系</li>
-                        <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> 完善的药品质量追溯系统</li>
-                        <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> 规范的药品存储环境</li>
-                        <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> 专业的冷链配送系统</li>
-                        <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> 严格的质量管理流程</li>
-                    </ul>
-                </div>
+            <div class="col-lg-6 order-lg-1" data-aos="fade-right">
+                <img src="https://source.unsplash.com/random/600x400?medicine" alt="我们的使命" class="img-fluid rounded shadow-sm">
             </div>
         </div>
     </div>
-    
-    <!-- 联系我们 -->
-    <div class="row">
-        <div class="col-12 text-center mb-5" data-aos="fade-up">
-            <div class="card shadow-sm border-0 p-5">
-                <div class="card-body">
-                    <h2 class="h2 mb-4">联系我们</h2>
-                    <p class="lead mb-5">如果您有任何问题或建议，欢迎随时与我们联系</p>
-                    <div class="row g-4">
-                        <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
-                            <div class="contact-icon bg-primary-light text-primary mx-auto mb-3">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <h5>地址</h5>
-                            <p class="mb-0">北京市海淀区中关村大街1号</p>
-                        </div>
-                        <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
-                            <div class="contact-icon bg-primary-light text-primary mx-auto mb-3">
-                                <i class="fas fa-phone"></i>
-                            </div>
-                            <h5>电话</h5>
-                            <p class="mb-0">400-123-4567</p>
-                        </div>
-                        <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
-                            <div class="contact-icon bg-primary-light text-primary mx-auto mb-3">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <h5>邮箱</h5>
-                            <p class="mb-0">contact@healthpharmacy.com</p>
-                        </div>
+</section>
+
+<section class="about-team py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">我们的团队</h2>
+        <div class="row g-4">
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="card team-card h-100">
+                    <img src="https://source.unsplash.com/random/300x300?pharmacist" class="card-img-top" alt="团队成员">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">李医生</h5>
+                        <p class="card-text text-muted">首席药师</p>
+                        <p class="card-text">拥有20年临床经验，专注于合理用药指导</p>
                     </div>
-                    <div class="mt-5" data-aos="fade-up" data-aos-delay="400">
-                        <a href="{% url 'core:contact' %}" class="btn btn-primary btn-lg rounded-pill px-5">
-                            <i class="far fa-paper-plane me-2"></i>给我们留言
-                        </a>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="card team-card h-100">
+                    <img src="https://source.unsplash.com/random/300x300?doctor" class="card-img-top" alt="团队成员">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">张教授</h5>
+                        <p class="card-text text-muted">健康顾问</p>
+                        <p class="card-text">著名医学专家，为平台提供专业的健康咨询服务</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="card team-card h-100">
+                    <img src="https://source.unsplash.com/random/300x300?nurse" class="card-img-top" alt="团队成员">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">王药师</h5>
+                        <p class="card-text text-muted">用药指导专家</p>
+                        <p class="card-text">专注于慢性病用药管理，帮助患者科学用药</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</section>
 
-<style>
-.team-card .team-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(76, 175, 80, 0.8);
-    opacity: 0;
-    transition: all 0.3s ease;
-}
-
-.team-card:hover .team-overlay {
-    opacity: 1;
-}
-
-.team-social a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: white;
-    color: var(--primary-color);
-    font-size: 1.2rem;
-    transition: all 0.3s ease;
-}
-
-.team-social a:hover {
-    background: var(--primary-dark);
-    color: white;
-    transform: translateY(-3px);
-}
-
-.bg-success-light {
-    background-color: rgba(40, 167, 69, 0.1);
-}
-
-.bg-primary-light {
-    background-color: rgba(76, 175, 80, 0.1);
-}
-
-.commitment-icon {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-}
-
-.contact-icon {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    transition: all 0.3s ease;
-}
-
-.contact-icon:hover {
-    transform: scale(1.1);
-}
-
-.commitment-item {
-    transition: all 0.3s ease;
-}
-
-.commitment-item:hover {
-    transform: translateY(-5px);
-}
-</style>
+<section class="about-certificate py-5 bg-light">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
+                <h2 class="mb-4">我们的资质</h2>
+                <p class="lead">MASTER药房拥有合法的经营资质，确保您购买的每一件药品都安全可靠</p>
+                <div class="d-flex align-items-center mb-3">
+                    <i class="fas fa-certificate fa-2x text-primary me-3"></i>
+                    <div>
+                        <h5 class="mb-0">互联网药品信息服务资格证书</h5>
+                        <p class="mb-0 text-muted">证书编号: (京)-经营性-2022-0001</p>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center mb-3">
+                    <i class="fas fa-certificate fa-2x text-primary me-3"></i>
+                    <div>
+                        <h5 class="mb-0">互联网药品交易服务资格证书</h5>
+                        <p class="mb-0 text-muted">证书编号: (京)-药监-2022-0001</p>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-certificate fa-2x text-primary me-3"></i>
+                    <div>
+                        <h5 class="mb-0">GSP认证</h5>
+                        <p class="mb-0 text-muted">证书编号: GSP-BJ-20220001</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6" data-aos="fade-left">
+                <img src="https://source.unsplash.com/random/600x400?certificate" alt="资质证书" class="img-fluid rounded shadow-sm">
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}

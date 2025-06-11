@@ -1,13 +1,14 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .models import Profile
+from .forms import UserRegistrationForm, UserProfileForm, UserUpdateForm
 
 def register(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = UserRegistrationForm(request.POST)
         if form.is_valid():
             user = form.save()
             Profile.objects.create(user=user)
@@ -15,7 +16,7 @@ def register(request):
             messages.success(request, '账户创建成功！')
             return redirect('core:home')
     else:
-        form = UserCreationForm()
+        form = UserRegistrationForm()
     return render(request, 'users/register.html', {'form': form})
 
 def user_login(request):
@@ -27,7 +28,7 @@ def user_login(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                messages.success(request, f'欢迎回来, {username}!')
+                messages.success(request, f'欢迎回来, {user.first_name or username}!')
                 return redirect('core:home')
     else:
         form = AuthenticationForm()
@@ -42,4 +43,24 @@ def user_logout(request):
 @login_required
 def profile(request):
     user_profile, created = Profile.objects.get_or_create(user=request.user)
-    return render(request, 'users/profile.html', {'profile': user_profile})
+    
+    if request.method == 'POST':
+        user_form = UserUpdateForm(request.POST, instance=request.user)
+        profile_form = UserProfileForm(request.POST, instance=user_profile)
+        
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+            messages.success(request, '您的个人资料已更新！')
+            return redirect('users:profile')
+    else:
+        user_form = UserUpdateForm(instance=request.user)
+        profile_form = UserProfileForm(instance=user_profile)
+    
+    context = {
+        'user_form': user_form,
+        'profile_form': profile_form,
+        'profile': user_profile
+    }
+    
+    return render(request, 'users/profile.html', context)
