@@ -32,12 +32,14 @@
                 <h2 class="mb-0">{% if category %}{{ category.name }}{% else %}所有药品{% endif %}</h2>
                 <div class="dropdown">
                     <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="sortDropdown" data-bs-toggle="dropdown">
-                        排序方式
+                        {% if sort_text %}{{ sort_text }}{% else %}排序方式{% endif %}
                     </button>
                     <ul class="dropdown-menu dropdown-menu-end">
-                        <li><a class="dropdown-item" href="#">价格从低到高</a></li>
-                        <li><a class="dropdown-item" href="#">价格从高到低</a></li>
-                        <li><a class="dropdown-item" href="#">最新上架</a></li>
+                        <li><a class="dropdown-item {% if sort == 'price_asc' %}active{% endif %}" href="{% if category %}{% url 'products:product_list_by_category' category.slug %}{% else %}{% url 'products:product_list' %}{% endif %}?sort=price_asc">价格从低到高</a></li>
+                        <li><a class="dropdown-item {% if sort == 'price_desc' %}active{% endif %}" href="{% if category %}{% url 'products:product_list_by_category' category.slug %}{% else %}{% url 'products:product_list' %}{% endif %}?sort=price_desc">价格从高到低</a></li>
+                        <li><a class="dropdown-item {% if sort == 'newest' %}active{% endif %}" href="{% if category %}{% url 'products:product_list_by_category' category.slug %}{% else %}{% url 'products:product_list' %}{% endif %}?sort=newest">最新上架</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item {% if not sort %}active{% endif %}" href="{% if category %}{% url 'products:product_list_by_category' category.slug %}{% else %}{% url 'products:product_list' %}{% endif %}">默认排序</a></li>
                     </ul>
                 </div>
             </div>

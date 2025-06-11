@@ -77,5 +77,8 @@ class Cart:
         """
         清空购物车
         """
-        del self.session[settings.CART_SESSION_ID]
+        # 清空购物车字典
+        self.cart = {}
+        # 删除会话中的购物车并重新设置为空字典
+        self.session[settings.CART_SESSION_ID] = {}
         self.save() 

@@ -68,7 +68,11 @@
                     {% endif %}
                     <a href="{% url 'cart:cart_detail' %}" class="btn-cart ms-3" data-bs-toggle="tooltip" data-bs-placement="bottom" title="购物车">
                         <i class="fas fa-shopping-cart"></i>
-                        <span class="badge bg-danger">{{ request.session.cart|default:"{}"|length }}</span>
+                        {% with total_items=cart|length %}
+                            {% if total_items > 0 %}
+                            <span class="badge bg-danger">{{ request.session.cart|default:"{}"|length }}</span>
+                            {% endif %}
+                        {% endwith %}
                     </a>
                 </div>
             </div>

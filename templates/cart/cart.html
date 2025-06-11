@@ -68,6 +68,9 @@
                     <a href="{% url 'products:product_list' %}" class="btn btn-outline-primary">
                         <i class="fas fa-arrow-left"></i> 继续购物
                     </a>
+                    <a href="{% url 'cart:cart_clear' %}" class="btn btn-outline-danger mx-2">
+                        <i class="fas fa-trash"></i> 清空购物车
+                    </a>
                     <a href="{% url 'orders:order_create' %}" class="btn btn-primary">
                         去结算 <i class="fas fa-arrow-right"></i>
                     </a>
